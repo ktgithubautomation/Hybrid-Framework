@@ -26,7 +26,7 @@ public class BaseTest extends DriverScript{
 	@AfterMethod
 	public void tearDown()
 	{
-		//quitDriver();
+		quitDriver();
 	}
 	
 }

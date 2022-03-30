@@ -16,12 +16,19 @@ public class TaskList extends BaseTest
 	
 	@FindBy(xpath = "//div[contains(@class,'title ellipsis')]") WebElement addNewText;
 	@FindBy(xpath = "//div[text()='+ New Customer']") WebElement createNew;
-	@FindBy (xpath = "(//input[@placeholder='Enter Customer Name'])[2]") WebElement enterCustomerName;
+	@FindBy(xpath = "(//input[@placeholder='Enter Customer Name'])[2]") WebElement enterCustomerName;
 	@FindBy(xpath = "//textarea[@placeholder='Enter Customer Description']") WebElement enterCustomerDescription;
 	@FindBy(xpath = "//div[contains(text(),'Create Customer')]") WebElement createCustomerButton;
 	
+	@FindBy(xpath = "(//input[@placeholder='Start typing name ...'])[1]") WebElement searchbox;
+	@FindBy(xpath = "//span[@class='highlightToken']") WebElement searchitem;
+	@FindBy(xpath = "//div[@class='titleEditButtonContainer']//div[@class='editButton']") WebElement editbutton;	
+	@FindBy(xpath = "//div[@class='actionButtonWrapper pressed']//div[@class='action'][normalize-space()='ACTIONS']") WebElement actionButton;
+   	@FindBy(xpath = "(//div[@class='taskManagement_customerPanel']//div[@class='title'][normalize-space()='Delete']") WebElement deletebutton;
+   	@FindBy(xpath = "//span[normalize-space()='Delete permanently']") WebElement deletepermananat;
+  
 	//********************************** page Initialization *****************
-	 	
+ 
 	public TaskList()
 	 {			
 		 PageFactory.initElements(driver, this);		
@@ -63,10 +70,53 @@ public class TaskList extends BaseTest
 		
 	}
     
+	
 	public void clickCreateCustomer()
 	{
 		createCustomerButton.click();
 		System.out.println("Customer Added successfully");
 		
 	}
+	
+	public void searchCustomer(String Cname)
+	{
+		searchbox.sendKeys(Cname);
+		System.out.println("searchCustomer");
+		
+	}
+
+   public void searchResult()
+   {
+	   searchitem.click();
+	   System.out.println("SearchResult");
+   }
+   
+   public void editAction()
+   
+   {
+	   editbutton.click();
+	   System.out.println("editAction");
+   }
+
+   public void actionButtoncustomer()
+   {
+	   actionButton.click();
+	   System.out.println("actionButtoncustomer");
+   }
+  
+   public void deletecustomer()
+   {
+	   deletebutton.click();
+	   System.out.println("delete cust");
+   }
+   
+   public void deletePermanantly()
+   {
+	   deletepermananat.click();
+	   System.out.println("perm delete");
+   }
+
+       
+   
 }
+
